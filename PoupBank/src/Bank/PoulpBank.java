@@ -10,7 +10,7 @@ public class PoulpBank {
 		 */
 		
 		var conta1 = new ContaBancaria();
-		var conta2 = new ContaBancaria();
+		//var conta2 = new ContaBancaria();
 		
 		/*
 		 * versoes mais novas podem utilizar var sem precisar colocar o nome da classe
@@ -37,12 +37,17 @@ public class PoulpBank {
 		conta1.conta = scn.nextLine();
 		System.out.print("Digite o nome do proprietario: ");
 		conta1.proprietario = scn.nextLine();
-		System.out.print("Digite o saudo inicial: ");
-		conta1.saldo = scn.nextDouble();
+		System.out.print("Digite o valor de deposito: ");
+		conta1.depositar(scn.nextDouble());
 		
+		System.out.println(conta1.agencia+"\n" + conta1.conta + "\n"+conta1.proprietario+"\n"+conta1.consultarSaldo());
 		
-		System.out.println(conta1.agencia+"\n" + conta1.conta + "\n"+conta1.proprietario+"\n"+conta1.saldo);
+		System.out.print("\n\n Digite o valor para saque:");
+		conta1.sacar(scn.nextDouble());
 		
+		System.out.print(conta1.consultarSaldo());
+		
+		scn.close();
 		
 	}
 
