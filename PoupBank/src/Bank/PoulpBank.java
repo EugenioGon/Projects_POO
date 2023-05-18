@@ -10,6 +10,7 @@ public class PoulpBank {
 		 */
 		
 		var conta1 = new ContaBancaria();
+		Usuario user1 = new Usuario();
 		//var conta2 = new ContaBancaria();
 		
 		/*
@@ -35,12 +36,20 @@ public class PoulpBank {
 		conta1.agencia = scn.nextLine();
 		System.out.print("Digite sua conta: ");
 		conta1.conta = scn.nextLine();
-		System.out.print("Digite o nome do proprietario: ");
-		conta1.proprietario = scn.nextLine();
+		//Contrucao e insercao dos dados do usuario
+		System.out.print("Dados do usuario");
+		System.out.print("\nDigite o nome do cliente: ");
+		user1.nome = scn.next();
+		System.out.print("Digite o sobrenome do cliente: ");
+		user1.sobrenome = scn.next();
+		System.out.print("Digite o telefone do cliente: ");
+		user1.telefone = scn.next();
+		conta1.proprietario = user1;
+		
 		System.out.print("Digite o valor de deposito: ");
 		conta1.depositar(scn.nextDouble());
 		
-		System.out.println(conta1.agencia+"\n" + conta1.conta + "\n"+conta1.proprietario+"\n"+conta1.consultarSaldo());
+		System.out.println(conta1.agencia+"\n" + conta1.conta + "\n"+conta1.proprietario.imprimirInfo()+"\n"+conta1.consultarSaldo());
 		
 		System.out.print("\n\n Digite o valor para saque:");
 		conta1.sacar(scn.nextDouble());
