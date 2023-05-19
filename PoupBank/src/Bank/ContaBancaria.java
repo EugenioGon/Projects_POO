@@ -1,15 +1,62 @@
 package Bank;
 
 public class ContaBancaria {
-//Atributos da classe
+    	//Atributos da classe
 	
 	String agencia;
 	String conta;
 	double saldo;
 	Usuario proprietario;
+    
+	//Metodo construtor
 	
-//Metodos da classe 
-		
+	public ContaBancaria() {}
+
+	public ContaBancaria (String agencia, String conta, double saldo, Usuario proprietario) {
+	    
+	    this.agencia = agencia;
+	    this.conta = conta;
+	    this.saldo = saldo;
+	    this.proprietario = proprietario;
+	    	    
+	}
+	
+	//Metodos Getters e Setters
+	
+ 	public String getAgencia() {
+ 	    return this.agencia;
+ 	}
+ 	
+ 	public String getConta() {
+ 	    return this.conta;
+ 	}
+ 	
+ 	public double getSaldo() {
+ 	    return this.saldo;
+ 	}
+ 	
+ 	public Usuario getProprietario() {
+ 	    return this.proprietario;
+ 	}
+ 	
+ 	void setAgencia(String agencia) {
+ 	     this.agencia = agencia;	    
+ 	}
+ 	
+ 	void setConta(String conta) {
+	     this.conta = conta;	    
+	}
+ 	
+ 	void setSaldo(double saldo) {
+ 	    this.saldo = saldo;
+ 	}
+ 	
+ 	void setProprietario(Usuario proprietario) {
+ 	    this.proprietario = proprietario;
+ 	}
+ 	
+	//Metodos da classe 
+ 	
 	void depositar(double valor) { // Metodo com parametro
 		
 		this.saldo += valor;
@@ -48,6 +95,8 @@ public class ContaBancaria {
 		com identificadores (%d,  %f, %s).*/
 		return String.format("Seu saldo e: R$ %.2f", this.saldo);
 	}
+	
+ 
 	
 	
 
