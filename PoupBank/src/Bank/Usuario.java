@@ -56,9 +56,7 @@ public class Usuario {
     void setDataRegistro(Date dataRegistro) {
 	this.dataRegistro = new Date();
     }
-    
-    
-    
+       
     //Metodos da classe 
     
     String imprimirInfo(){

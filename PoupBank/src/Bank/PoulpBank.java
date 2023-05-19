@@ -39,11 +39,11 @@ public class PoulpBank {
 		//Contrucao e insercao dos dados do usuario
 		System.out.print("Dados do usuario");
 		System.out.print("\nDigite o nome do cliente: ");
-		user1.nome = scn.next();
+		user1.setNome(scn.next()) ;
 		System.out.print("Digite o sobrenome do cliente: ");
-		user1.sobrenome = scn.next();
+		user1.setSobrenome(scn.next());
 		System.out.print("Digite o telefone do cliente: ");
-		user1.telefone = scn.next();
+		user1.setTelefone(scn.next());
 		conta1.proprietario = user1;
 		
 		System.out.print("Digite o valor de deposito: ");
@@ -57,6 +57,7 @@ public class PoulpBank {
 		System.out.print(conta1.consultarSaldo());
 		
 		scn.close();
+		
 		
 	}
 
