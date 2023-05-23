@@ -3,10 +3,10 @@ package Bank;
 public class ContaBancaria {
     	//Atributos da classe
 	
-	String agencia;
-	String conta;
-	double saldo;
-	Usuario proprietario;
+	private String agencia;
+	private String conta;
+	private double saldo;
+	private Usuario proprietario;
     
 	//Metodo construtor
 	
@@ -39,19 +39,19 @@ public class ContaBancaria {
  	    return this.proprietario;
  	}
  	
- 	void setAgencia(String agencia) {
+ 	public  void setAgencia(String agencia) {
  	     this.agencia = agencia;	    
  	}
  	
- 	void setConta(String conta) {
+ 	public void setConta(String conta) {
 	     this.conta = conta;	    
 	}
  	
- 	void setSaldo(double saldo) {
+ 	public void setSaldo(double saldo) {
  	    this.saldo = saldo;
  	}
  	
- 	void setProprietario(Usuario proprietario) {
+ 	public void setProprietario(Usuario proprietario) {
  	    this.proprietario = proprietario;
  	}
  	

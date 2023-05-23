@@ -41,11 +41,11 @@ public class Usuario {
 	return this.dataRegistro;
     }
     
-    void setNome(String nome) {
+    public void setNome(String nome) {
 	this.nome = nome;
     }
     
-    void setSobrenome(String sobrenome) {
+    public void setSobrenome(String sobrenome) {
 	this.sobrenome = sobrenome;
     }
     
@@ -53,7 +53,7 @@ public class Usuario {
 	this.telefone = telefone;
     }
     
-    void setDataRegistro(Date dataRegistro) {
+    public void setDataRegistro(Date dataRegistro) {
 	this.dataRegistro = new Date();
     }
        
