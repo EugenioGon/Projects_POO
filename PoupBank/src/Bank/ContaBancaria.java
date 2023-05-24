@@ -7,6 +7,7 @@ public class ContaBancaria {
 	private String conta;
 	private double saldo;
 	private Usuario proprietario;
+	
     
 	//Metodo construtor
 	

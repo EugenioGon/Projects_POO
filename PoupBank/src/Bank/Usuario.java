@@ -1,6 +1,5 @@
 package Bank;
 
-import java.util.Date;
 
 public class Usuario {
     
@@ -8,7 +7,7 @@ public class Usuario {
     private String nome;
     private String sobrenome;
     private String telefone;
-    private Date dataRegistro = new Date();
+   
     
     
     //Metodo construtor
@@ -36,11 +35,7 @@ public class Usuario {
     public String getTelefone() {
 	return this.telefone;
     }
-    
-    public Date getDateRegistro() {
-	return this.dataRegistro;
-    }
-    
+       
     public void setNome(String nome) {
 	this.nome = nome;
     }
@@ -53,16 +48,13 @@ public class Usuario {
 	this.telefone = telefone;
     }
     
-    public void setDataRegistro(Date dataRegistro) {
-	this.dataRegistro = new Date();
-    }
        
     //Metodos da classe 
     
-    String imprimirInfo(){
+    public String imprimirInfo(){
 	
-	return String.format("Nome: %s \n Sobrenome: %s \n Telefone: %s \n Data: %s", 
-		this.nome,this.sobrenome, this.telefone, this.dataRegistro);
+	return String.format("Nome: %s \n Sobrenome: %s \n Telefone: %s", 
+		this.nome,this.sobrenome, this.telefone);
 	
     }
     

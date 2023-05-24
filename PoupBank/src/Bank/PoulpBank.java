@@ -1,6 +1,7 @@
 package Bank;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class PoulpBank {
 
@@ -59,12 +60,26 @@ public class PoulpBank {
 		scn.close();
 		*/
 	    
-	    Scanner scn = new Scanner(System.in);
-	    int opCliente;
+	    
+	    Scanner scn = new Scanner(System.in);	    
+	    boolean isLogin = false;
+	    int opCliente, qtCadastro = 0;
 	    int opcao = 0, i = 0, menuBank = 0;	    
 	    ContaBancaria conta = new ContaBancaria();
 	    Usuario user;
-	    Usuario[] users = new Usuario[5];
+	    ArrayList<Usuario> users = new ArrayList<>();
+	    ArrayList<Gerente> gerentes = new ArrayList<>();
+	    GerenteRepository db_gerente = new GerenteRepository();
+	    gerentes = db_gerente.addGerente();
+	    
+	    
+	    
+	    System.out.println("*** SEJA BEM VINDO AO POUP BANK ***");
+	    System.out.print("LOGIN: ");
+	    String login = scn.next();
+	    System.out.print("PASSWORD: ");
+	    String password = scn.next();
+	    	            
 	    
 	        while (opcao != 4) {
 	            //1º Tela
@@ -73,8 +88,10 @@ public class PoulpBank {
 	            System.out.println("2 - Cadastro de Cliente");
 	            System.out.println("3 - Area do cliente");
 	            System.out.println("4 - Sair");
-	            System.out.print("Escolhe uma opcaoo: ");
+	            System.out.print("Escolhe uma opcao: ");
 	            opcao = scn.nextInt();
+	            
+	            }
 
 	            switch (opcao) {
 	                case 1:
@@ -84,21 +101,27 @@ public class PoulpBank {
 	                    System.out.print("Conta: ");
 	                    conta.setConta(scn.next());
 	                    System.out.println("Clientes  Cadastrados");
-	                    if (users[0] != null) {
-	                        for ( i = 0; i < 5; i++) {
-	                            System.out.printf("%d- %s %s\n", i + 1, users[i].getNome(), users[i].getSobrenome());
+	                    
+	                    //Sera clientes cadastrados 
+	                    if (users.size() != 0) {
+	                        for ( i = 0; i < qtCadastro; i++) {
+	                            System.out.printf("%d- %s %s\n", i + 1, users.get(i).getNome(), users.get(i).getSobrenome());
 	                        }
 	                        System.out.print("Selecione o cliente: ");
 	                        int userOpcao = scn.nextInt();
-	                        conta.setProprietario(users[userOpcao - 1]);
+	                        conta.setProprietario(users.get(userOpcao -1));
 	                    }else
 	                        System.out.println("Nenhum cliente cadastrado!" + "");
 	                    break;
 	                    
 	                case 2:
-	                    for ( i = 0; i < 5; i++) {
-	                        user = new Usuario();
-	                        System.out.println("***Cadastro de Cliente***");
+	                    System.out.println("***Cadastro de Cliente***");
+	                    System.out.println("Quantidade de cadastros");
+	                    qtCadastro = scn.nextInt();
+	                    
+	                    for ( i = 0; i < qtCadastro; i++) {
+	                        user = new Cliente();
+	                        
 	                        System.out.print("Nome: ");
 	                        user.setNome(scn.next());
 	                        System.out.print("Sobrenome: ");
@@ -106,7 +129,7 @@ public class PoulpBank {
 	                        System.out.printf("Telefone: ");
 	                        user.setTelefone(scn.next());
 
-	                        users[i] = user;
+	                        users.add(user);
 	                    }
 	                    break;
 	                    
@@ -114,9 +137,16 @@ public class PoulpBank {
 	                    System.out.println("***Ate Breve!***");
 	                    break;
 	                    
-	                case 3:
-                    
-	                    while(menuBank != 2) {
+	                case 3:	 
+	                    
+	                    /*if(conta.getAgencia() != null && conta.getConta() != null) {	                	
+	                	 System.out.println("Nem uma conta Cadastrada !!");               	
+	                    } else {
+	                	 System.out.print("Informe a Agencia: ");	                     	 
+	                	
+	                    }*/
+	                    
+	                    while(menuBank != 2) {	           	                	
 	                    System.out.println("\n*** Opcoes do cliente ***");
 	                    System.out.println(" 1 - Sacar\n 2 - Depositar\n 3 - Transferir\n 4 - Consultar Saldo.");
 	                    System.out.print("Opcao escolhida: ");
@@ -149,10 +179,7 @@ public class PoulpBank {
 	                    break;
 	                default:
 	                    System.out.println("Opcao Invalida!");
-	            }
-	        }
-		
-	        scn.close();
+	            }	        	   		            
+	   
 	}
       }
-
